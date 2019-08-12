@@ -18,6 +18,25 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      path: '/communication',
+      name: 'communication',
+      component: () => import(/** webpackChunkName: "communication" */ './views/Communication.vue'),
+      children: [
+        {
+          path: 'parent_to_child',
+          name: 'parent_to_child',
+          component: () => import(/** webpackChunkName: "parent_to_child" */ './vue-component-study/communication/parent-to-child/Index.vue'),
+          children: [
+            {
+              path: 'props',
+              name: 'props',
+              component: () => import('./vue-component-study/communication/parent-to-child/props/Parent.vue')
+            }
+          ]
+        }
+      ]
     }
   ]
 })
