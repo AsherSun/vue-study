@@ -22,18 +22,28 @@ export default new Router({
     {
       path: '/communication',
       name: 'communication',
-      component: () => import(/** webpackChunkName: "communication" */ './views/Communication.vue'),
+      component: () => import(/* webpackChunkName: "communication" */ './views/Communication.vue'),
       children: [
         {
           path: 'parent_to_child',
           name: 'parent_to_child',
-          component: () => import(/** webpackChunkName: "parent_to_child" */ './vue-component-study/communication/parent-to-child/Index.vue'),
+          component: () => import(/* webpackChunkName: "parent_to_child" */ './vue-component-study/communication/parent-to-child/Index.vue'),
           children: [
             {
               path: 'props',
               name: 'props',
               component: () => import('./vue-component-study/communication/parent-to-child/props/Parent.vue')
-            }
+            },
+            {
+              path: 'refs',
+              name: 'refs',
+              component: () => import('./vue-component-study/communication/parent-to-child/refs/Parent.vue')
+            },
+            {
+              path: 'children',
+              name: 'children',
+              component: () => import('./vue-component-study/communication/parent-to-child/children/Parent.vue')
+            },
           ]
         }
       ]
