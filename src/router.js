@@ -62,6 +62,11 @@ export default new Router({
               component: () => import('./vue-component-study/communication/child-to-parent/parent/Parent.vue')
             }
           ],
+        },
+        {
+          path: 'brother',
+          name: 'brother',
+          component: () => import('./vue-component-study/communication/brother/Index.vue')
         }
       ]
     }
