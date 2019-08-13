@@ -45,6 +45,23 @@ export default new Router({
               component: () => import('./vue-component-study/communication/parent-to-child/children/Parent.vue')
             },
           ]
+        },
+        {
+          path: 'child_to_parent',
+          name: 'child_to_parent',
+          component: () => import(/* webpackChunkName: "child_to_parent" */ './vue-component-study/communication/child-to-parent/Index.vue'),
+          children: [
+            {
+              path: 'event',
+              name: 'event',
+              component: () => import('./vue-component-study/communication/child-to-parent/event/Parent.vue')
+            },
+            {
+              path: 'parent',
+              name: 'parent',
+              component: () => import('./vue-component-study/communication/child-to-parent/parent/Parent.vue')
+            }
+          ],
         }
       ]
     }
