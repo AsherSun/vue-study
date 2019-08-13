@@ -67,6 +67,18 @@ export default new Router({
           path: 'brother',
           name: 'brother',
           component: () => import('./vue-component-study/communication/brother/Index.vue')
+        },
+        {
+          path: 'ancestors-to-progeny',
+          name: 'ancestors-to-progeny',
+          component: () => import('./vue-component-study/communication/ancestors-to-progeny/Index.vue'),
+          children: [
+            {
+              path: 'provide-inject',
+              name: 'provide-inject',
+              component: () => import('./vue-component-study/communication/ancestors-to-progeny/provide-inject/Ancestors.vue'),
+            }
+          ]
         }
       ]
     }
